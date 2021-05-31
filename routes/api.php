@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('books/isbn/{isbn}', [\App\Http\Controllers\BookController::class, 'showWithIsbn']);
+Route::apiResource('books', \App\Http\Controllers\BookController::class);
